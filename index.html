@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>母亲节快乐</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #fff0f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            color: #d63384;
+        }
+        
+        header {
+            background-color: #ff85a2;
+            width: 100%;
+            text-align: center;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(214, 51, 132, 0.3);
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .container {
+            max-width: 800px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .flower {
+            font-size: 5em;
+            margin: 20px 0;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .message {
+            background-color: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(214, 51, 132, 0.2);
+            line-height: 1.6;
+        }
+        
+        .photo-frame {
+            width: 200px;
+            height: 200px;
+            border: 10px solid #ff85a2;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 20px auto;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .btn {
+            background-color: #ff85a2;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 1.1em;
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 8px rgba(214, 51, 132, 0.3);
+        }
+        
+        .btn:hover {
+            background-color: #d63384;
+            transform: translateY(-3px);
+        }
+        
+        footer {
+            margin-top: auto;
+            padding: 15px;
+            width: 100%;
+            text-align: center;
+            background-color: #ff85a2;
+            color: white;
+        }
+        
+        .hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            color: rgba(214, 51, 132, 0.6);
+            animation: fall linear forwards;
+        }
+        
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>母亲节快乐！</h1>
+    </header>
+    
+    <div class="container">
+        <div class="flower">🌸</div>
+        
+        <div class="photo-frame">
+    <a href="https://imgur.la/image/1000041341.NNg5Z"><img src="https://imgur.la/images/2025/05/11/1000041341.jpg" alt="1000041341" border="0"></a>
+</div>
+        
+        <div class="message">
+            <h2>亲爱的妈妈：</h2>
+            <p>感谢您无私的爱与付出，是您用温暖的怀抱为我遮风挡雨，用智慧的言语指引我前行。</p >
+            <p>在这个特别的日子里，我想对您说：妈妈，我爱您！愿您健康快乐，幸福安康！</p >
+            <p>您是我生命中最重要的人，我永远感激您为我做的一切。</p >
+        </div>
+        
+        <button class="btn" onclick="showLove()">点击表达爱意</button>
+        <button class="btn" onclick="playMusic()">播放音乐</button>
+        
+        <audio id="music" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+    </div>
+    
+    <footer>
+        <p>© 2025 母亲节快乐 | 献给世界上最伟大的妈妈</p >
+    </footer>
+    
+    <div class="hearts" id="hearts"></div>
+    
+    <script>
+        function showLove() {
+            const hearts = document.getElementById('hearts');
+            hearts.innerHTML = '';
+            
+            for (let i = 0; i < 50; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.innerHTML = '❤';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+                hearts.appendChild(heart);
+            }
+            
+            setTimeout(() => {
+                hearts.innerHTML = '';
+            }, 5000);
+        }
+        
+        function playMusic() {
+            const music = document.getElementById('music');
+            music.play();
+        }
+        
+        // 自动创建一些漂浮的心
+        setInterval(() => {
+            const hearts = document.getElementById('hearts');
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+            hearts.appendChild(heart);
+            
+            // 移除旧的心形
+            if (hearts.children.length > 30) {
+                hearts.removeChild(hearts.children[0]);
+            }
+        }, 300);
+    </script>
+</body>
+</html>
